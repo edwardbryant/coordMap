@@ -1,0 +1,23 @@
+{
+  "extends": ["airbnb"],
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": "true",
+    "jest": "true"
+  },
+  "rules": {
+    "arrow-parens": 0,
+    "comma-dangle": ["error", "never"],
+    "max-len": [2, 120],
+    "no-plusplus": 0,
+    "function-paren-newline": 0,
+    "function-call-argument-newline": 0,
+    "no-underscore-dangle": 0,
+    "object-curly-newline": [1, { "ImportDeclaration": { "multiline": true, "minProperties": 4 } }],
+    "prefer-destructuring": "off",
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "import/no-useless-path-segments": 0,
+    "import/prefer-default-export": 0
+  }
+}
