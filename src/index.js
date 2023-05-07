@@ -1,15 +1,7 @@
-import getGridLocationObject from './scripts/getGridLocationObject/getGridLocationObject';
-import getQuadrantSize from './scripts/getQuadrantSize/getQuadrantSize';
-import validateGridSize from './scripts/validateGridSize/validateGridSize';
+import create2d from './scripts/create2d/create2d';
 
-const thisIsaTest = () => {
-  console.log('this is a test.');
-  const coordMap = {
-    getGridLocationObject,
-    getQuadrantSize,
-    validateGridSize
-  };
-  return coordMap;
+const coordMap = {
+  create2d
 };
 
-export default thisIsaTest;
+export default coordMap;
