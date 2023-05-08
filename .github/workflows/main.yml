@@ -1,8 +1,11 @@
+name: quality checks
+
 on: 
   workflow_dispatch:
-    name: quality checks
-    runs-on: ubuntu-latest
+
+jobs:
+  runs-on: ubuntu-latest
     
-    steps:
-      - run: npm lint
-      - run: npm test
+  steps:
+    - run: npm lint
+    - run: npm test
