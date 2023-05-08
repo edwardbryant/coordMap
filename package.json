@@ -10,12 +10,12 @@
   "files": ["dist"],
   "repository": { "type": "git", "url": "..." },
   "scripts": {
-    "check-ver": "check-node-version --node  '>= 16.13' --npm '^8.1.2'",
     "lint": "npm run lint:eslint",
     "lint:fix": "npm run lint:eslint:fix",
-    "lint:eslint": "npm run check-ver && eslint . --ext .js --ext .jsx",
-    "lint:eslint:fix": "npm run check-ver && eslint . --ext .js --ext .jsx --fix",
-    "test": "npm run check-ver && jest --config ./spec/config/unit.json"
+    "lint:eslint": "eslint . --ext .js --ext .jsx",
+    "lint:eslint:fix": "eslint . --ext .js --ext .jsx --fix",
+    "test": "npm run test:unit",
+    "test:unit": "jest --config ./spec/config/unit.json"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -27,7 +27,6 @@
     "@babel/plugin-proposal-optional-chaining": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.10",
     "@babel/preset-env": "^7.16.10",
-    "check-node-version": "^4.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.26.0",
