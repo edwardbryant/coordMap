@@ -34,10 +34,9 @@ describe('coordMap', () => {
   });
 
   describe('when 2d 7x7 grid is created via coordMap', () => {
-    it('returns an array which allows access via both negative x and y coordinates', () => {
+    it('returns undefined  when x or y coordinates are outside of grid', () => {
       const myGrid = coordMap.create2d(7);
-      const mockGridObj = { x: -2, y: -3 };
-      expect(myGrid['10.12']).toEqual(mockGridObj);
+      expect(myGrid['10.12']).toEqual(undefined);
     });
   });
 });
