@@ -1,6 +1,6 @@
 {
   "name": "coordMap.js",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "type": "module",
   "description": "A hopefully performant approach to using arrays to represent and access data on points within a two-dimensional coordinate plane (i.e., a cartesian plane formed by the intersection of x-axis and y-axis).",
   "author": "Edward Bryant <edward.bryant@gmail.com>",
