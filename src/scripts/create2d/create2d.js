@@ -8,9 +8,12 @@ import assignGridLocation from '../assignGridLocation/assignGridLocation';
 const create2d = (size = 3) => {
   validateGridSize(size);
 
-  const quadSize = getQuadrantSize(size);
   const grid = [];
+
+  const quadSize = getQuadrantSize(size);
+
   const x = -Math.abs(quadSize);
+
   const y = Math.abs(quadSize);
 
   for (const row of Array(size).keys()) {
@@ -33,6 +36,7 @@ const create2d = (size = 3) => {
       return target[targetY][targetX];
     },
     set(target, prop, value) {
+      console.log('array set method triggered ...');
       const coords = prop.split('.');
       const targetY = assignGridLocation('y', coords[1], quadSize);
       const targetX = assignGridLocation('x', coords[0], quadSize);
