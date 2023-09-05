@@ -10,10 +10,12 @@ const create2d = (size = 3) => {
 
   const grid = [];
 
+  grid.xPos = 0;
+  grid.yPos = 0;
+
   const quadSize = getQuadrantSize(size);
 
   const x = -Math.abs(quadSize);
-
   const y = Math.abs(quadSize);
 
   for (const row of Array(size).keys()) {
@@ -26,18 +28,19 @@ const create2d = (size = 3) => {
   }
 
   const exportedGrid = new Proxy(grid, {
-    get(target, prop) {
-      const coords = prop.split('.');
-      if (coords[0] > quadSize || coords[1] > quadSize) {
-        return undefined;
+    get(target, prop, receiver) {
+      if (prop.includes(',')) {
+        const coords = prop.split(',');
+        if (coords[0] > quadSize || coords[1] > quadSize) return undefined;
+        const targetY = assignGridLocation('y', coords[1], quadSize);
+        const targetX = assignGridLocation('x', coords[0], quadSize);
+        return target[targetY][targetX];
+      } else {
+        return Reflect.get(target, prop, receiver);
       }
-      const targetY = assignGridLocation('y', coords[1], quadSize);
-      const targetX = assignGridLocation('x', coords[0], quadSize);
-      return target[targetY][targetX];
     },
     set(target, prop, value) {
-      console.log('array set method triggered ...');
-      const coords = prop.split('.');
+      const coords = prop.split(',');
       const targetY = assignGridLocation('y', coords[1], quadSize);
       const targetX = assignGridLocation('x', coords[0], quadSize);
       target[targetY][targetX] = value;
